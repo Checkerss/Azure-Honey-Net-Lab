@@ -1,68 +1,18 @@
 Honey Net Lab Steps with Screenshots.
 
 # Contents
-
-[*CREATING FIRST RESOURCE*
-[1](#creating-first-resource)](#creating-first-resource)
-
-[*INSTALLING MS SQL SERVER*
-[8](#installing-ms-sql-server)](#installing-ms-sql-server)
-
-[*PRECURSOR TO SECURITY OPERATIONS (FAILED AUTH, LOG OBSERVATION)*
-[22](#precursor-to-security-operations-failed-auth-log-observation)](#precursor-to-security-operations-failed-auth-log-observation)
-
-[*Azure Active Directory (now renamed to Microsoft Entra ID )*
-[26](#azure-active-directory-now-renamed-to-microsoft-entra-id)](#azure-active-directory-now-renamed-to-microsoft-entra-id)
-
-[*Overview – Users, Groups, and Access Management*
-[26](#overview-users-groups-and-access-management)](#overview-users-groups-and-access-management)
-
-[*Logging and Monitoring*
-[33](#logging-and-monitoring)](#logging-and-monitoring)
-
-[***Enabling Microsoft Defender*** [45](#_Toc164711423)](#_Toc164711423)
-
-[*Enable Log Collection for VMs and Network Security Groups*
-[54](#enable-log-collection-for-vms-and-network-security-groups)](#enable-log-collection-for-vms-and-network-security-groups)
-
-[*Kusto Query Language (KQL)*
-[79](#kusto-query-language-kql)](#kusto-query-language-kql)
-
-[*Tenant Level Logging*
-[79](#tenant-level-logging)](#tenant-level-logging)
-
-[*Next Will be doing Subscription Level Logging (Activity Log)*
-[96](#next-will-be-doing-subscription-level-logging-activity-log)](#next-will-be-doing-subscription-level-logging-activity-log)
-
-[<img src="./media/media/image1.png"
-style="width:6.10485in;height:3.40267in"
-alt="A screenshot of a computer Description automatically generated" />
-[96](#a-screenshot-of-a-computer-description-automatically-generated)](#a-screenshot-of-a-computer-description-automatically-generated)
-
-[*Resource Level Logging (Diagnostics settings)*
-[102](#resource-level-logging-diagnostics-settings)](#resource-level-logging-diagnostics-settings)
-
-[*Microsoft Sentinel Build*
-[119](#microsoft-sentinel-build)](#microsoft-sentinel-build)
-
-[*Manual Alert Creation*
-[127](#manual-alert-creation)](#manual-alert-creation)
-
-[***Automatic Alert Import*** [133](#_Toc164711432)](#_Toc164711432)
-
-[*Understanding and Triggering Sentinel*
-[136](#understanding-and-triggering-sentinel)](#understanding-and-triggering-sentinel)
-
-[*Run the Insecure Environment for 24hrs and Capture Analytics*
-[142](#run-the-insecure-environment-for-24hrs-and-capture-analytics)](#run-the-insecure-environment-for-24hrs-and-capture-analytics)
-
-[*Regulatory Compliance (Enable NIST 800-53) (New)*
-[154](#regulatory-compliance-enable-nist-800-53-new)](#regulatory-compliance-enable-nist-800-53-new)
-
-[*Azure Private Link- Firewall for Resources (NIST SC-7)*
-[159](#azure-private-link--firewall-for-resources-nist-sc-7)](#azure-private-link--firewall-for-resources-nist-sc-7)
-
-[***Environment Cleanup*** [180](#_Toc164711437)](#_Toc164711437)
+# Table of Contents
+- [Creating First Resource](#creating-first-resource)
+- [Installing MS SQL Server](#installing-ms-sql-server)
+- [Precursor to Security Operations (Failed Auth, Log Observation)](#precursor-to-security-operations-failed-auth-log-observation)
+- [Azure Active Directory (now renamed to Microsoft Entra ID)](#azure-active-directory-now-renamed-to-microsoft-entra-id)
+- [Overview – Users, Groups, and Access Management](#overview-–-users-groups-and-access-management)
+- [Logging and Monitoring](#logging-and-monitoring)
+- [Enabling Microsoft Defender](#enabling-microsoft-defender)
+- [Enable Log Collection for VMs and Network Security Groups](#enable-log-collection-for-vms-and-network-security-groups)
+- [Kusto Query Language (KQL)](#kusto-query-language-kql)
+- [Tenant Level Logging](#tenant-level-logging)
+- [Next Will be doing Subscription Level Logging (Activity Log)](#next-will-be-doing-subscription-level-logging-activity-log)
 
 # *<u>CREATING FIRST RESOURCE</u>*
 
