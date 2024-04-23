@@ -1,12 +1,25 @@
 Honey Net Lab Steps with Screenshots.
 
-***<u>CREATING FIRST RESOURCE</u>***
+# Contents
+# Table of Contents
+- [Creating First Resource](#creating-first-resource)
+- [Installing MS SQL Server](#installing-ms-sql-server)
+- [Precursor to Security Operations (Failed Auth, Log Observation)](#precursor-to-security-operations-failed-auth-log-observation)
+- [Azure Active Directory (now renamed to Microsoft Entra ID)](https://github.com/Checkerss/Azure-Honey-Net-Lab/blob/master/tut.md#azure-active-directory-now-renamed-to-microsoft-entra-id-)
+- [Logging and Monitoring](#logging-and-monitoring)
+- [Enabling Microsoft Defender](#enabling-microsoft-defender)
+- [Enable Log Collection for VMs and Network Security Groups](#enable-log-collection-for-vms-and-network-security-groups)
+- [Kusto Query Language (KQL)](#kusto-query-language-kql)
+- [Tenant Level Logging](#tenant-level-logging)
+- [Next Will be doing Subscription Level Logging (Activity Log)](#next-will-be-doing-subscription-level-logging-activity-log)
+
+# *<u>CREATING FIRST RESOURCE</u>*
 
 **Step 1:** Create your Azure account using one of three options: free,
 pay-as-you-go, or student. Choose whichever fits your needs. Once you
 have done so, you will be redirected to the Azure home portal.
 
-<img src="./media/media/image1.png" style="width:6.5in;height:5.97778in"
+<img src="./media/media/image2.png" style="width:6.5in;height:5.97778in"
 alt="A screenshot of a computer Description automatically generated" />
 
 **Step 2: <u>Create Windows 10 Pro Virtual Machine (Name it
@@ -26,14 +39,14 @@ windows-vm)</u>**
 
   - Look over screenshots to make sure your lab is the same
 
-> <img src="./media/media/image2.png"
+> <img src="./media/media/image3.png"
 > style="width:5.1722in;height:3.64044in"
 > alt="A screenshot of a computer Description automatically generated" />
-> <img src="./media/media/image3.png"
+> <img src="./media/media/image4.png"
 > style="width:4.91702in;height:5.26951in"
 > alt="A screenshot of a computer Description automatically generated" />
 >
-> <img src="./media/media/image4.png" style="width:6.5in;height:6.32778in"
+> <img src="./media/media/image5.png" style="width:6.5in;height:6.32778in"
 > alt="A screenshot of a computer Description automatically generated" />
 >
 > STEP 3: **Create one more Virtual Machine running <u>Ubuntu
@@ -54,24 +67,24 @@ windows-vm)</u>**
 - Configure Network Security Group (Layer 4 Firewall) to allow
   **<u>all</u>** traffic inbound
 
-> <img src="./media/media/image5.png"
+> <img src="./media/media/image6.png"
 > style="width:3.9109in;height:3.34265in"
 > alt="A screenshot of a computer Description automatically generated" />
-> <img src="./media/media/image6.png"
+> <img src="./media/media/image7.png"
 > style="width:3.9912in;height:3.77714in"
 > alt="A screenshot of a computer Description automatically generated" />
 
 - Find the NSG(network security groups) in the search bar, on the VM
   itself, or in the RG-Cyber_Lab group
 
-> <img src="./media/media/image7.png" style="width:6.5in;height:2.99861in"
+> <img src="./media/media/image8.png" style="width:6.5in;height:2.99861in"
 > alt="A screenshot of a computer Description automatically generated" />
 >
-> <img src="./media/media/image8.png"
+> <img src="./media/media/image9.png"
 > style="width:6.58072in;height:3.35417in"
 > alt="Delete the inbound rule for 22,click on add+ to add a new inbound rule allowing all traffic. The priority has to be below the other rules, so 110 or 100 work." />
 
-<img src="./media/media/image9.png"
+<img src="./media/media/image10.png"
 style="width:5.35779in;height:2.25302in"
 alt="A screenshot of a computer Description automatically generated" />
 
@@ -80,7 +93,7 @@ and add a new rule to allow all traffic.
 
 <u>Keep track of Cost management.</u>
 
-***<u>INSTALLING MS SQL SERVER</u>***
+# *<u>INSTALLING MS SQL SERVER</u>*
 
 STEP 4: **<u>Disable Windows Firewall, and Install SQL Server, and
 Create Vulnerabilities</u>**
@@ -90,13 +103,13 @@ Create Vulnerabilities</u>**
   - You can do this with a remote desktop if you are using a Windows PC
     or download an app for Mac OS or Windows. (Google is your friend)
 
-  - <img src="./media/media/image10.png"
+  - <img src="./media/media/image11.png"
     style="width:2.43441in;height:2.92731in"
     alt="A screenshot of a computer Description automatically generated" />
 
 - Turn off the Windows Firewall
 
-  - <img src="./media/media/image11.png"
+  - <img src="./media/media/image12.png"
     style="width:6.34703in;height:3.58184in"
     alt="A screenshot of a computer Description automatically generated" />
 
@@ -107,15 +120,15 @@ Create Vulnerabilities</u>**
 - Put fake info. It works. Click on Download Media and put it on the
   desktop.
 
-- <img src="./media/media/image12.png"
+- <img src="./media/media/image13.png"
   style="width:6.5in;height:3.59444in"
   alt="A screenshot of a computer Description automatically generated" />
 
-- <img src="./media/media/image13.png"
+- <img src="./media/media/image14.png"
   style="width:6.5in;height:5.00139in"
   alt="A screenshot of a computer Description automatically generated" />
 
-> <img src="./media/media/image14.png"
+> <img src="./media/media/image15.png"
 > style="width:6.5in;height:2.98611in"
 > alt="A screenshot of a computer Description automatically generated" />
 
@@ -124,7 +137,7 @@ Create Vulnerabilities</u>**
 - Then you'll see in the image below it's now mounted, and click on
   setup to install the sql server onto the Windows VM.
 
-> <img src="./media/media/image15.png"
+> <img src="./media/media/image16.png"
 > style="width:6.5in;height:3.54931in"
 > alt="A screenshot of a computer Description automatically generated" />
 
@@ -132,13 +145,13 @@ Create Vulnerabilities</u>**
 
 - Click next on everything to accept the license agreement
 
-> <img src="./media/media/image16.png"
+> <img src="./media/media/image17.png"
 > style="width:6.5in;height:4.87292in"
 > alt="A screenshot of a computer Description automatically generated" />
 
 - Click on database engine services and the next
 
-> <img src="./media/media/image17.png" style="width:6.5in;height:3.9in"
+> <img src="./media/media/image18.png" style="width:6.5in;height:3.9in"
 > alt="A screenshot of a computer Description automatically generated" />
 
 - Next, until you get here, click on mixed mode and input a password. I
@@ -146,11 +159,11 @@ Create Vulnerabilities</u>**
 
 - Continue and install. Don’t change anything else.
 
-> <img src="./media/media/image18.png"
+> <img src="./media/media/image19.png"
 > style="width:5.69968in;height:4.29546in"
 > alt="A screenshot of a computer Description automatically generated" />
 >
-> <img src="./media/media/image19.png"
+> <img src="./media/media/image20.png"
 > style="width:6.5in;height:4.70833in"
 > alt="A screenshot of a computer Description automatically generated" />
 
@@ -163,7 +176,7 @@ Create Vulnerabilities</u>**
 - Install SSMS (SQL Server Management Studio):
   [<u>https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms</u>](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms) 
 
-> <img src="./media/media/image20.png"
+> <img src="./media/media/image21.png"
 > style="width:3.46833in;height:3.03547in"
 > alt="A screenshot of a computer Description automatically generated" />
 
@@ -173,44 +186,44 @@ Create Vulnerabilities</u>**
 - Open the Windows registry by searching on the Windows search box
   registry editor
 
-> <img src="./media/media/image21.png"
+> <img src="./media/media/image22.png"
 > style="width:6.5in;height:3.16458in"
 > alt="A screenshot of a computer Description automatically generated" />
 >
-> <img src="./media/media/image22.png"
+> <img src="./media/media/image23.png"
 > style="width:5.70883in;height:4.09202in"
 > alt="A screenshot of a computer Description automatically generated" />
 
 - Go to the specified path on the ref site. Right-click security and go
   to permissions. Then ADD NETWORK SERVICE and give it full control.
 
-> <img src="./media/media/image23.png"
+> <img src="./media/media/image24.png"
 > style="width:6.00885in;height:6.60057in"
 > alt="A screenshot of a computer Description automatically generated" />
 
 - Apply changes and click ok
 
-> <img src="./media/media/image24.png"
+> <img src="./media/media/image25.png"
 > style="width:4.75875in;height:4.65874in"
 > alt="A screenshot of a computer screen Description automatically generated" />
 
 - Scroll to the configure portion, open command line in the VM, and
   follow the steps
 
-<img src="./media/media/image25.png"
+<img src="./media/media/image26.png"
 style="width:6.33529in;height:3.91015in"
-alt="A screenshot of a computer Description automatically generated" /><img src="./media/media/image26.png"
+alt="A screenshot of a computer Description automatically generated" /><img src="./media/media/image27.png"
 style="width:6.35119in;height:3.23125in"
 alt="A screenshot of a computer Description automatically generated" />
 
 - Exit out everything now and, open SQL server management, and enter
   creds from before
 
-<img src="./media/media/image27.png"
+<img src="./media/media/image28.png"
 style="width:6.5in;height:3.65486in"
 alt="A computer screen shot of a computer screen Description automatically generated" />
 
-<img src="./media/media/image28.png"
+<img src="./media/media/image29.png"
 style="width:3.867in;height:3.76699in"
 alt="A screenshot of a computer Description automatically generated" />
 
@@ -221,7 +234,7 @@ alt="A screenshot of a computer Description automatically generated" />
 
 - Right-click on the same windows-vm and restart the server
 
-<img src="./media/media/image29.png"
+<img src="./media/media/image30.png"
 style="width:6.5in;height:3.59931in"
 alt="A screenshot of a computer Description automatically generated" />
 
@@ -229,11 +242,11 @@ alt="A screenshot of a computer Description automatically generated" />
   wrong password then cancel and exit once error is shown and open event
   viewer to make sure its being audited.
 
-<img src="./media/media/image30.png"
+<img src="./media/media/image31.png"
 style="width:2.3502in;height:0.76673in"
 alt="A screenshot of a computer Description automatically generated" />
 
-<img src="./media/media/image31.png"
+<img src="./media/media/image32.png"
 style="width:6.5in;height:3.55903in"
 alt="A screenshot of a computer Description automatically generated" />
 
@@ -250,10 +263,9 @@ It looks to be working fine.
 **We will use both VMs in the next video, but you can turn them off for
 now if you want to save money.**
 
-***<u>PRECURSOR TO SECURITY OPERATIONS (FAILED AUTH, LOG
-OBSERVATION)</u>***
+# *<u>PRECURSOR TO SECURITY OPERATIONS (FAILED AUTH, LOG OBSERVATION)</u>*
 
-<img src="./media/media/image32.png"
+<img src="./media/media/image33.png"
 style="width:6.5in;height:3.52014in"
 alt="A diagram of a group Description automatically generated" />
 
@@ -286,7 +298,7 @@ the wrong credentials.</u>**
 
 Repeat this step 2 more times with the wrong username and password.
 
-<img src="./media/media/image33.png"
+<img src="./media/media/image34.png"
 style="width:4.44205in;height:4.6754in"
 alt="A screenshot of a computer Description automatically generated" />
 
@@ -304,7 +316,7 @@ credentials.
 
 Log out of “attack-vm” now you are back to your computer.
 
-<img src="./media/media/image34.png"
+<img src="./media/media/image35.png"
 style="width:6.5in;height:5.33611in" />
 
 You can shut down attack-vm for now.
@@ -318,7 +330,7 @@ Log for SQL)
 
 Take note of the EventIDs, messaging, Source IP Addresses, etc.
 
-<img src="./media/media/image35.png"
+<img src="./media/media/image36.png"
 style="width:6.5in;height:6.17014in"
 alt="A computer screen shot of a computer Description automatically generated" />
 
@@ -327,7 +339,7 @@ get into your VM.
 
 Next Image shows the application logs witch is the SQL server.
 
-<img src="./media/media/image36.png"
+<img src="./media/media/image37.png"
 style="width:6.5in;height:5.12153in"
 alt="A screenshot of a computer Description automatically generated" />
 
@@ -339,9 +351,9 @@ cat /var/log/auth.log \| grep Accepted
 
 **TURN VMs OFF! (do not need for next STEPS)**
 
-***<u>Azure Active Directory (now renamed to Microsoft Entra ID )</u>***
+# *<u>Azure Active Directory (now renamed to Microsoft Entra ID )</u>*
 
-***<u>Overview – Users, Groups, and Access Management</u>***
+# *<u>Overview – Users, Groups, and Access Management</u>*
 
 **Check your Subscription’s [<u>Cost
 Analysis</u>](https://portal.azure.com/#view/Microsoft_Azure_CostManagement/Menu/~/costanalysis/openedBy/AzurePortal)**
@@ -351,11 +363,11 @@ Analysis</u>](https://portal.azure.com/#view/Microsoft_Azure_CostManagement/Menu
 Create a user within Azure Active Directory (AAD) **(username:
 globalreaderjohn)**
 
-<img src="./media/media/image37.png"
+<img src="./media/media/image38.png"
 style="width:6.1172in;height:4.85875in"
 alt="A screenshot of a computer Description automatically generated" />
 
-- Assign Tenant-Level Global Reader<img src="./media/media/image38.png"
+- Assign Tenant-Level Global Reader<img src="./media/media/image39.png"
   style="width:6.18766in;height:3.77077in"
   alt="A screenshot of a computer Description automatically generated" />
 
@@ -372,15 +384,15 @@ subreaderjane)**
 - Assign Subscription-Level Reader By going into the search bar in the
   portal and searching subscriptions. Yours will have a different name.
 
-> <img src="./media/media/image39.png"
+> <img src="./media/media/image40.png"
 > style="width:5.12544in;height:4.42538in"
 > alt="A screenshot of a computer Description automatically generated" />
 >
-> <img src="./media/media/image40.png"
+> <img src="./media/media/image41.png"
 > style="width:4.53373in;height:7.47565in"
 > alt="A screenshot of a computer Description automatically generated" />
 >
-> <img src="./media/media/image41.png"
+> <img src="./media/media/image42.png"
 > style="width:6.5in;height:7.07569in"
 > alt="A screenshot of a computer Description automatically generated" />
 
@@ -397,7 +409,7 @@ rgcontributordave)**
 
 - Create a new resource group called “Permissions-Tester.”
 
-> <img src="./media/media/image42.png"
+> <img src="./media/media/image43.png"
 > style="width:6.29221in;height:3.49197in"
 > alt="A screenshot of a computer Description automatically generated" />
 
@@ -406,11 +418,11 @@ rgcontributordave)**
   - Click on permission group, then access control, and add role
     assignment.
 
-> <img src="./media/media/image43.png"
+> <img src="./media/media/image44.png"
 > style="width:5.30879in;height:4.83375in"
 > alt="A screenshot of a computer Description automatically generated" />
 >
-> <img src="./media/media/image44.png"
+> <img src="./media/media/image45.png"
 > style="width:6.5in;height:3.33194in"
 > alt="A screenshot of a computer Description automatically generated" />
 
@@ -423,9 +435,9 @@ rgcontributordave)**
 - You can only add resources with contributors to assigned resource
   groups.
 
-***<u>Logging and Monitoring</u>***
+# *<u>Logging and Monitoring</u>*
 
-<img src="./media/media/image45.png"
+<img src="./media/media/image46.png"
 style="width:6.82872in;height:3.91104in"
 alt="A screenshot of a computer Description automatically generated" />
 
@@ -439,32 +451,32 @@ Download this file onto your PC:
 
 - [<u>https://github.com/joshmadakor1/Cyber-Course-v2/blob/main/Sentinel-Maps(JSON)/geoip-summarized.csv</u>](https://github.com/joshmadakor1/Cyber-Course-v2/blob/main/Sentinel-Maps(JSON)/geoip-summarized.csv) 
 
-> <img src="./media/media/image46.png"
+> <img src="./media/media/image47.png"
 > style="width:6.5in;height:3.74236in"
 > alt="A screenshot of a computer Description automatically generated" />
 
 Create a Log Analytics Workspace (our log aggregator) named:
 LAW-Cyber-Lab-0x
 
-<img src="./media/media/image47.png"
+<img src="./media/media/image48.png"
 style="width:6.34222in;height:7.50898in"
 alt="A screenshot of a computer Description automatically generated" />
 
-<img src="./media/media/image48.png"
+<img src="./media/media/image49.png"
 style="width:6.20887in;height:7.49232in"
 alt="A screenshot of a computer Description automatically generated" />
 
 Setup Sentinel and connect it to our Log Analytics Workspace
 
-<img src="./media/media/image49.png"
+<img src="./media/media/image50.png"
 style="width:5.06711in;height:3.80866in"
 alt="A screenshot of a computer Description automatically generated" />
 
-<img src="./media/media/image50.png"
+<img src="./media/media/image51.png"
 style="width:6.5in;height:5.31667in"
 alt="A screenshot of a computer Description automatically generated" />
 
-<img src="./media/media/image51.png"
+<img src="./media/media/image52.png"
 style="width:4.00035in;height:7.3423in"
 alt="A screenshot of a computer Description automatically generated" />
 
@@ -480,19 +492,19 @@ Number of lines before row: 0
 
 Search Key: network
 
-<img src="./media/media/image52.png"
+<img src="./media/media/image53.png"
 style="width:5.48381in;height:7.51732in"
 alt="A screenshot of a computer Description automatically generated" />
 
-<img src="./media/media/image53.png"
+<img src="./media/media/image54.png"
 style="width:6.5in;height:5.48403in"
 alt="A screenshot of a computer Description automatically generated" />
 
-<img src="./media/media/image54.png"
+<img src="./media/media/image55.png"
 style="width:5.56715in;height:7.55899in"
 alt="A screenshot of a computer Description automatically generated" />
 
-<img src="./media/media/image55.png"
+<img src="./media/media/image56.png"
 style="width:6.5in;height:3.09722in"
 alt="A screenshot of a computer Description automatically generated" />
 
@@ -505,7 +517,7 @@ when you query \_GetWatchlist("GeoIP")
 
 It should look like this:
 
-<img src="./media/media/image56.png"
+<img src="./media/media/image57.png"
 style="width:6.5in;height:3.78819in"
 alt="A screenshot of a computer Description automatically generated" />
 
@@ -515,7 +527,8 @@ lab.**
 **We will use VMs in the next lab so that you can turn them on now or
 before you begin the lab if you want to take a break.**
 
-***<u>Enabling Microsoft Defender</u>***
+<span id="_Toc164711423" class="anchor"></span>**<u>Enabling Microsoft
+Defender</u>**
 
 **<u>Do you need your VMs to be on for this lab?</u>**
 
@@ -523,29 +536,29 @@ before you begin the lab if you want to take a break.**
 
 Enable Microsoft Defender for Cloud for Log Analytics Workspace
 
-<img src="./media/media/image57.png"
+<img src="./media/media/image58.png"
 style="width:4.59206in;height:2.42521in"
 alt="A screenshot of a computer Description automatically generated" />
 
-<img src="./media/media/image58.png"
+<img src="./media/media/image59.png"
 style="width:6.5in;height:3.97292in"
 alt="A screenshot of a computer Description automatically generated" />
 
 - Click on edit settings
 
-<img src="./media/media/image59.png"
+<img src="./media/media/image60.png"
 style="width:6.5in;height:2.92083in"
 alt="A screenshot of a computer Description automatically generated" />
 
 - Enable Defender Plans for VMs and SQL Instances on VMs
 
-<img src="./media/media/image60.png"
+<img src="./media/media/image61.png"
 style="width:6.5in;height:2.20972in"
 alt="A screenshot of a computer Description automatically generated" />
 
 - Enable Data Collection (All Events)
 
-<img src="./media/media/image61.png"
+<img src="./media/media/image62.png"
 style="width:6.5in;height:3.28056in"
 alt="A screenshot of a computer Description automatically generated" />
 
@@ -553,19 +566,19 @@ Enable Microsoft Defender for Cloud for Subscription
 
 - Click on edit settings
 
-<img src="./media/media/image62.png"
+<img src="./media/media/image63.png"
 style="width:6.5in;height:2.20208in"
 alt="A screenshot of a computer Description automatically generated" />
 
 - VMs, Storage Accounts, Key Vault, SQL Server
 
-> <img src="./media/media/image63.png"
+> <img src="./media/media/image64.png"
 > style="width:6.5in;height:4.80833in"
 > alt="A screenshot of a computer Description automatically generated" />
 
 - Go to settings in the server row afterward
 
-> <img src="./media/media/image64.png"
+> <img src="./media/media/image65.png"
 > style="width:6.5in;height:4.87778in"
 > alt="A screenshot of a computer Description automatically generated" />
 
@@ -573,13 +586,13 @@ alt="A screenshot of a computer Description automatically generated" />
   sure it does not make its own workspace and logs from the actual VMS
   get sent to it.
 
-> <img src="./media/media/image65.png"
+> <img src="./media/media/image66.png"
 > style="width:6.5in;height:5.34861in"
 > alt="A screenshot of a computer Description automatically generated" />
 
 - Click Apply, then continue afterward, and then save
 
-> <img src="./media/media/image66.png"
+> <img src="./media/media/image67.png"
 > style="width:6.5in;height:5.14167in"
 > alt="A screenshot of a computer Description automatically generated" />
 
@@ -592,9 +605,9 @@ Settings
 
 - Do it for every single thing
 
-> <img src="./media/media/image67.png"
+> <img src="./media/media/image68.png"
 > style="width:6.5in;height:5.14583in"
-> alt="A screenshot of a computer Description automatically generated" /><img src="./media/media/image68.png"
+> alt="A screenshot of a computer Description automatically generated" /><img src="./media/media/image69.png"
 > style="width:6.5in;height:5.01597in"
 > alt="A screenshot of a computer Description automatically generated" />
 
@@ -606,30 +619,30 @@ of the lab.
 
 Looks good to continue!
 
-<img src="./media/media/image69.png"
+<img src="./media/media/image70.png"
 style="width:6.5in;height:1.77083in"
 alt="A screenshot of a computer Description automatically generated" />
 
 **We will continue using the VMs in the next lab, so you can leave them
 on unless you’re going to take a break.**
 
-***<u>Enable Log Collection for VMs and Network Security Groups</u>***
+# *<u>Enable Log Collection for VMs and Network Security Groups</u>*
 
 It's a bit of a long lab. Grab yourself a drink 🙂☕︎
 
 Create an Azure Storage Account (sacyberlab0x, name needs to be unique)
 
-<img src="./media/media/image70.png"
+<img src="./media/media/image71.png"
 style="width:5.81717in;height:2.43354in"
 alt="A screenshot of a computer Description automatically generated" />
 
 - MUST be in the same region as VMs
 
-> <img src="./media/media/image71.png"
+> <img src="./media/media/image72.png"
 > style="width:6.5in;height:7.17083in"
 > alt="A screenshot of a computer Description automatically generated" />
 >
-> <img src="./media/media/image72.png"
+> <img src="./media/media/image73.png"
 > style="width:6.26721in;height:7.45065in"
 > alt="A screenshot of a computer Description automatically generated" />
 
@@ -638,25 +651,25 @@ alt="A screenshot of a computer Description automatically generated" />
 
 Enable Flow logs for both Network Security Groups (NSGs)
 
-<img src="./media/media/image73.png"
+<img src="./media/media/image74.png"
 style="width:4.29204in;height:2.10852in"
 alt="A screenshot of a computer Description automatically generated" />
 
 Click on the windows-vm-nsg
 
-<img src="./media/media/image74.png"
+<img src="./media/media/image75.png"
 style="width:6.41722in;height:1.26678in"
 alt="A screenshot of a computer Description automatically generated" />
 
 Click on nsg flow logs.
 
-<img src="./media/media/image75.png"
+<img src="./media/media/image76.png"
 style="width:2.08351in;height:7.43398in"
 alt="A screenshot of a computer Description automatically generated" />
 
 Click on Create Flow log.
 
-<img src="./media/media/image76.png"
+<img src="./media/media/image77.png"
 style="width:6.5in;height:3.34375in"
 alt="A screenshot of a computer Description automatically generated" />
 
@@ -664,11 +677,11 @@ Click on select target resource and select network security group. That
 way, you can enable a flow log for Linux vm at the same time. Should
 redirect you if not click on resource afterwards.
 
-<img src="./media/media/image77.png"
+<img src="./media/media/image78.png"
 style="width:6.5in;height:6.04861in"
 alt="A screenshot of a computer Description automatically generated" />
 
-<img src="./media/media/image78.png"
+<img src="./media/media/image79.png"
 style="width:3.62531in;height:2.52522in"
 alt="A screenshot of a computer Description automatically generated" />
 
@@ -680,7 +693,7 @@ Confirm selection.
   region from your VMs, so you’ll need to create another storage account
   in the same region
 
-<img src="./media/media/image79.png"
+<img src="./media/media/image80.png"
 style="width:6.5in;height:6.77014in"
 alt="A screenshot of a computer Description automatically generated" />
 
@@ -688,11 +701,11 @@ Click next Analytics make sure version 2 is clicked and enable traffic
 analytics. Then click review+create and, look over everything, and
 create.
 
-<img src="./media/media/image80.png"
+<img src="./media/media/image81.png"
 style="width:6.5in;height:4.18333in"
 alt="A screenshot of a computer Description automatically generated" />
 
-<img src="./media/media/image81.png"
+<img src="./media/media/image82.png"
 style="width:5.97552in;height:5.08377in"
 alt="A screenshot of a computer Description automatically generated" />
 
@@ -700,13 +713,13 @@ Configure Data Collection Rules within our Log Analytics Workspace
 
 Click on agents
 
-<img src="./media/media/image82.png"
+<img src="./media/media/image83.png"
 style="width:2.20019in;height:5.20045in"
 alt="A screenshot of a computer Description automatically generated" />
 
 Click on data collection rules.
 
-<img src="./media/media/image83.png"
+<img src="./media/media/image84.png"
 style="width:6.5in;height:2.48472in"
 alt="A screenshot of a computer error Description automatically generated" />
 
@@ -724,21 +737,21 @@ different. Regardless, continue with the steps.
 
   - Windows-vm-logs
 
-<img src="./media/media/image84.png"
+<img src="./media/media/image85.png"
 style="width:3.31695in;height:2.6669in"
 alt="A screenshot of a computer Description automatically generated" />
 
-<img src="./media/media/image85.png"
+<img src="./media/media/image86.png"
 style="width:6.5in;height:4.50347in"
 alt="A screenshot of a computer Description automatically generated" />
 
 Hit next. And add resources Linux and windows vm from rg cyber group.
 
-<img src="./media/media/image86.png"
+<img src="./media/media/image87.png"
 style="width:5.71716in;height:3.80033in"
 alt="A screenshot of a computer Description automatically generated" />
 
-<img src="./media/media/image87.png"
+<img src="./media/media/image88.png"
 style="width:6.5in;height:3.81389in"
 alt="A screenshot of a computer Description automatically generated" />
 
@@ -748,19 +761,19 @@ from the VMs.
 - Select Linux, click only on LOG-AUTH, and leave at debug, which means
   collect everything. Click none for the rest of the options.
 
-<img src="./media/media/image88.png"
+<img src="./media/media/image89.png"
 style="width:6.5in;height:5.28681in"
 alt="A screenshot of a computer Description automatically generated" />
 
 Hit next at the bottom to add the data source.
 
-<img src="./media/media/image89.png"
+<img src="./media/media/image90.png"
 style="width:6.5in;height:5.49861in"
 alt="A screenshot of a computer Description automatically generated" />
 
 Next, add more data sources next is windows event logs.
 
-<img src="./media/media/image90.png"
+<img src="./media/media/image91.png"
 style="width:6.5in;height:7.23542in"
 alt="A screenshot of a computer Description automatically generated" />
 
@@ -769,13 +782,13 @@ Click on next and add the same destination. Then, review and create.
 Then, go back to the log analytics workspace. Click on the cyber lab,
 then agents 🡪 data collection rules 🡪 Dcr-allvms.
 
-<img src="./media/media/image91.png"
+<img src="./media/media/image92.png"
 style="width:4.63373in;height:1.89183in"
 alt="A screenshot of a computer Description automatically generated" />
 
 Click on data sources.
 
-<img src="./media/media/image92.png"
+<img src="./media/media/image93.png"
 style="width:6.5in;height:2.68056in"
 alt="A screenshot of a computer Description automatically generated" />
 
@@ -796,7 +809,7 @@ Click on Windows and, change basic to custom, and input these rules.
 - Microsoft-Windows-Windows Firewall With Advanced
   Security/Firewall!\*\[System\[(EventID=2003)\]\]
 
-> <img src="./media/media/image93.png"
+> <img src="./media/media/image94.png"
 > style="width:6.5in;height:5.36458in"
 > alt="A screenshot of a computer Description automatically generated" />
 >
@@ -813,7 +826,7 @@ You will log into the Windows VM, use the codes in your log analytics
 workspace, and point back to the log analytics workspace to forward
 them. This is just an extra precaution.
 
-<img src="./media/media/image94.png"
+<img src="./media/media/image95.png"
 style="width:6.5in;height:4.69653in"
 alt="A screenshot of a computer Description automatically generated" />
 
@@ -823,7 +836,7 @@ download the installation and start it by following the prompts. Have
 your ID and key ready. If its already installed remove (I did) and
 reinstall with steps above and below.
 
-<img src="./media/media/image95.png"
+<img src="./media/media/image96.png"
 style="width:6.5in;height:4.50972in"
 alt="A screenshot of a computer screen Description automatically generated" />
 
@@ -833,11 +846,11 @@ Go to the control panel, change the categories to large icons, and click
 on Microsoft Monitoring Agent. Then click on Azure log analytics; it
 should look like mine.
 
-<img src="./media/media/image96.png"
+<img src="./media/media/image97.png"
 style="width:6.5in;height:4.63889in"
 alt="A screenshot of a computer Description automatically generated" />
 
-<img src="./media/media/image97.png"
+<img src="./media/media/image98.png"
 style="width:6.5in;height:4.42292in"
 alt="A computer screen with a message Description automatically generated" />
 
@@ -846,11 +859,11 @@ analytics instructions. It will do it all for you and should have a 0
 error at the end. That’s it nothing else needs to be done move onto the
 next steps.
 
-<img src="./media/media/image98.png"
+<img src="./media/media/image99.png"
 style="width:6.28388in;height:6.32555in"
 alt="A screenshot of a computer security system Description automatically generated" />
 
-<img src="./media/media/image99.png"
+<img src="./media/media/image100.png"
 style="width:6.5in;height:3.66736in"
 alt="A screenshot of a computer Description automatically generated" />
 
@@ -869,19 +882,19 @@ least the Linux/windows logs:**
 
 Linux
 
-<img src="./media/media/image100.png"
+<img src="./media/media/image101.png"
 style="width:6.5in;height:1.90278in"
 alt="A screenshot of a computer Description automatically generated" />
 
 Windows:
 
-<img src="./media/media/image101.png"
+<img src="./media/media/image102.png"
 style="width:6.5in;height:1.49306in"
 alt="A screenshot of a computer Description automatically generated" />
 
 NSGs:
 
-<img src="./media/media/image102.png"
+<img src="./media/media/image103.png"
 style="width:6.5in;height:2.94653in"
 alt="A screenshot of a computer Description automatically generated" />
 
@@ -907,21 +920,21 @@ Machines</u>](https://docs.google.com/presentation/d/1Sd71Zm_J8PY06L3_YzoOpvcten
 **As long as you see logs coming in, you can shut down your Virtual
 Machines to save money.**
 
-***<u>Kusto Query Language (KQL)</u>***
+# *<u>Kusto Query Language (KQL)</u>*
 
-<img src="./media/media/image103.png"
+<img src="./media/media/image104.png"
 style="width:6.5in;height:1.87847in"
 alt="A screenshot of a computer Description automatically generated" />
-<img src="./media/media/image104.png"
+<img src="./media/media/image105.png"
 style="width:6.5in;height:1.31389in"
 alt="A screenshot of a computer Description automatically generated" />
-<img src="./media/media/image105.png"
+<img src="./media/media/image106.png"
 style="width:1.60847in;height:2.10852in"
 alt="A white paper with black text Description automatically generated" />
 
 <https://github.com/joshmadakor1/Cyber-Course/blob/main/KQL-Query-Cheat-Sheet.md>
 
-***<u>Tenant Level Logging</u>***
+# *<u>Tenant Level Logging</u>*
 
 **<u>Do you need your VMs to be on for this lab?</u>**
 
@@ -939,24 +952,24 @@ Create Diagnostic Settings to ingest Azure AD Logs
 
 - Enable Audit Logs and Signin Logs for Azure AD
 
-<img src="./media/media/image106.png"
+<img src="./media/media/image107.png"
 style="width:6.5in;height:5.52639in"
 alt="A screenshot of a computer Description automatically generated" />
-<img src="./media/media/image107.png"
+<img src="./media/media/image108.png"
 style="width:6.5in;height:3.70556in"
 alt="A screenshot of a computer Description automatically generated" />
 
 Check Log Analytics Workspace that the tables have been created:
 “AuditLogs” “SigninLogs”
 
-<img src="./media/media/image108.png"
+<img src="./media/media/image109.png"
 style="width:6.5in;height:3.92431in"
 alt="A screenshot of a computer Description automatically generated" />
 
 You can also check on the logs tab and see if the table has been created
 if it doesn’t show up on tables section. If It wasn’t created it’d have
 a red error message so it’s there in the image below just has not gotten
-any logs yet. <img src="./media/media/image109.png"
+any logs yet. <img src="./media/media/image110.png"
 style="width:6.5in;height:3.29167in"
 alt="A screenshot of a computer Description automatically generated" />
 
@@ -968,40 +981,40 @@ Assign dummy_user the Role of Global Administrator
 
 Back in Active Directory.
 
-<img src="./media/media/image110.png"
+<img src="./media/media/image111.png"
 style="width:2.05018in;height:3.0336in"
 alt="A screenshot of a computer Description automatically generated" />
-<img src="./media/media/image111.png"
+<img src="./media/media/image112.png"
 style="width:4.9671in;height:1.90017in"
 alt="A screenshot of a computer Description automatically generated" />
-<img src="./media/media/image112.png"
+<img src="./media/media/image113.png"
 style="width:5.60049in;height:7.41731in"
 alt="A screenshot of a computer Description automatically generated" />
 
-<img src="./media/media/image113.png"
+<img src="./media/media/image114.png"
 style="width:4.83375in;height:7.53399in"
 alt="A screenshot of a computer Description automatically generated" />
 
-<img src="./media/media/image114.png"
+<img src="./media/media/image115.png"
 style="width:6.5in;height:3.67014in" />
 
-<img src="./media/media/image115.png"
+<img src="./media/media/image116.png"
 style="width:5.90885in;height:7.3423in"
 alt="A screenshot of a computer Description automatically generated" />
 
-<img src="./media/media/image116.png"
+<img src="./media/media/image117.png"
 style="width:6.5in;height:2.44861in"
 alt="A screenshot of a computer Description automatically generated" />
 
 Delete dummy_user
 
-<img src="./media/media/image117.png"
+<img src="./media/media/image118.png"
 style="width:5.12544in;height:1.92517in"
 alt="A screenshot of a computer Description automatically generated" />
 
 Observe Audit Logs logs in Log Analytics Workspace.
 
-<img src="./media/media/image118.png"
+<img src="./media/media/image119.png"
 style="width:6.5in;height:4.34097in"
 alt="A screenshot of a computer Description automatically generated" />
 
@@ -1024,7 +1037,7 @@ Administrator"' 
 TargetResources\[0\].modifiedProperties\[1\].newValue, Status = Result,
 TargetResources
 
-<img src="./media/media/image119.png"
+<img src="./media/media/image120.png"
 style="width:6.5in;height:4.25278in"
 alt="A screenshot of a computer Description automatically generated" />
 
@@ -1035,13 +1048,13 @@ Microsoft Entra ID)</u>**
 
 Create the “attacker” user if it does not exist already
 
-<img src="./media/media/image120.png"
+<img src="./media/media/image121.png"
 style="width:2.39187in;height:7.44231in"
 alt="A screenshot of a computer Description automatically generated" />
 
 - Produce 10-11 failed Logins with the portal in incognito mode
 
-- <img src="./media/media/image121.png"
+- <img src="./media/media/image122.png"
   style="width:6.5in;height:5.27222in"
   alt="A screenshot of a computer Description automatically generated" />
 
@@ -1067,7 +1080,7 @@ Longitude = location.geoCoordinates.longitude
 AppDisplayName, IPAddress, IPAddressFromResourceProvider, City, State,
 Country, Latitude, Longitude
 
-<img src="./media/media/image122.png" style="width:6.5in;height:3.775in"
+<img src="./media/media/image123.png" style="width:6.5in;height:3.775in"
 alt="A screenshot of a computer Description automatically generated" />
 
 **We don’t need VMs for the next video, so leave/turn them off if you
@@ -1083,7 +1096,7 @@ locked out. Just for extra precaution.
 Create a backup account in Azure Active Directory (aka Microsoft Entra
 ID) and assign it Global Administrator. 
 
-<img src="./media/media/image123.png"
+<img src="./media/media/image124.png"
 style="width:5.56715in;height:7.58399in"
 alt="A screenshot of a computer Description automatically generated" />
 
@@ -1095,10 +1108,11 @@ manager)
 **We don’t need VMs for the next video, so leave/turn them off if you
 want to save money.**
 
-***<u>Next Will be doing Subscription Level Logging (Activity
-Log)</u>*** <img src="./media/media/image124.png"
-style="width:6.5in;height:3.62292in"
-alt="A screenshot of a computer Description automatically generated" />
+# *<u>Next Will be doing Subscription Level Logging (Activity Log)</u>* 
+
+# <img src="./media/media/image1.png"
+style="width:6.10485in;height:3.40267in"
+alt="A screenshot of a computer Description automatically generated" /> 
 
 <img src="./media/media/image125.png"
 style="width:6.5in;height:3.11628in"
@@ -1205,7 +1219,7 @@ AzureActivity
 **We don’t need VMs for the next video, so leave/turn them off if you
 want to save money.**
 
-***<u>Resource Level Logging (Diagnostics settings)</u>***
+# *<u>Resource Level Logging (Diagnostics settings)</u>*
 
 <img src="./media/media/image134.png"
 style="width:6.5in;height:3.59375in"
@@ -1445,7 +1459,7 @@ SIEM, so it may be a good idea to turn your VMs on now (both windows-vm
 and linux-vm) and perhaps even let them run overnight to generate some
 logs from people trying to break into them over the internet.**
 
-***<u>Microsoft Sentinel Build</u>***
+# *<u>Microsoft Sentinel Build</u>*
 
 <img src="./media/media/image155.png"
 style="width:6.5in;height:3.41111in"
@@ -1582,7 +1596,7 @@ following:**
 good idea to leave your VMs on (unless you’re going to go to bed or
 something and want to maximize your savings)**
 
-***<u>Manual Alert Creation</u>***
+# *<u>Manual Alert Creation</u>*
 
 **<u>Do you need your VMs to be on for this lab?</u>**
 
@@ -1642,7 +1656,8 @@ Within Azure Sentinel, browse to “Analytics” -\> “Active Rules”
 good idea to leave your VMs on (unless you’re going to go to bed or
 something and want to maximize your savings)**
 
-***<u>Automatic Alert Import</u>***
+<span id="_Toc164711432" class="anchor"></span>***<u>Automatic Alert
+Import</u>***
 
 **<u>Do you need your VMs to be on for this lab?</u>**
 
@@ -1686,7 +1701,7 @@ Many of them will be triggered on their own from live Internet traffic.
 good idea to leave your VMs on (unless you’re going to go to bed or
 something and want to maximize your savings)**
 
-***<u>Understanding and Triggering Sentinel</u>***
+# *<u>Understanding and Triggering Sentinel</u>*
 
 **<u>Do you need your VMs to be on for this lab?</u>**
 
@@ -1811,8 +1826,7 @@ something and want to maximize your savings)**
 **However, you do not need the attack VM from this point, so feel free
 to turn it off or delete it.**
 
-***<u>Run the Insecure Environment for 24hrs and Capture
-Analytics</u>***
+# *<u>Run the Insecure Environment for 24hrs and Capture Analytics</u>*
 
 Spreadsheet: [BEFORE AND
 AFTER](https://docs.google.com/spreadsheets/d/1MWJuaa1OcYXojxhjwDH_gtEV3kDvrf2RPgRi10XcVQQ/edit#gid=0)
@@ -1959,7 +1973,7 @@ alt="A screenshot of a computer Description automatically generated" />
 Repeat these steps for all the other Incidents. This is a practice to
 get an idea of what a SOC analyst does.
 
-***<u>Regulatory Compliance (Enable NIST 800-53) (New)</u>***
+# *<u>Regulatory Compliance (Enable NIST 800-53) (New)</u>*
 
 **Check your Subscription’s [Cost
 Analysis](https://portal.azure.com/#view/Microsoft_Azure_CostManagement/Menu/~/costanalysis/openedBy/AzurePortal)**
@@ -2023,7 +2037,7 @@ Firewall, etc.
 
 **You can leave your VMs off.**
 
-***<u>Azure Private Link- Firewall for Resources (NIST SC-7)</u>***
+# *<u>Azure Private Link- Firewall for Resources (NIST SC-7)</u>*
 
 **<u>Do you need your VMs to be on for this lab?</u>**
 
@@ -2223,7 +2237,8 @@ for our portfolio!**
 style="width:6.5in;height:2.95903in"
 alt="A screenshot of a computer Description automatically generated" />
 
-***<u>Environment Cleanup</u>***
+<span id="_Toc164711437" class="anchor"></span>***<u>Environment
+Cleanup</u>***
 
 **<u>Do you need your VMs to be on for this lab?</u>**
 
