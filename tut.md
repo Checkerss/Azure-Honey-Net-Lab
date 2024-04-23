@@ -527,8 +527,8 @@ lab.**
 **We will use VMs in the next lab so that you can turn them on now or
 before you begin the lab if you want to take a break.**
 
-<span id="_Toc164711423" class="anchor"></span>***<u>Enabling Microsoft
-Defender</u>***
+<span id="_Toc164711423" class="anchor"></span>**<u>Enabling Microsoft
+Defender</u>**
 
 **<u>Do you need your VMs to be on for this lab?</u>**
 
