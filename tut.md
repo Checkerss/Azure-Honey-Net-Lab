@@ -5,7 +5,7 @@ Honey Net Lab Steps with Screenshots.
 - [Creating First Resource](#creating-first-resource)
 - [Installing MS SQL Server](#installing-ms-sql-server)
 - [Precursor to Security Operations (Failed Auth, Log Observation)](#precursor-to-security-operations-failed-auth-log-observation)
-- [Azure Active Directory (now renamed to Microsoft Entra ID)](#azure-active-directory-now-renamed-to-microsoft-entra-id](https://github.com/Checkerss/Azure-Honey-Net-Lab/blob/master/tut.md#azure-active-directory-now-renamed-to-microsoft-entra-id-))
+- [Azure Active Directory (now renamed to Microsoft Entra ID)](https://github.com/Checkerss/Azure-Honey-Net-Lab/blob/master/tut.md#azure-active-directory-now-renamed-to-microsoft-entra-id-)
 - [Logging and Monitoring](#logging-and-monitoring)
 - [Enabling Microsoft Defender](#enabling-microsoft-defender)
 - [Enable Log Collection for VMs and Network Security Groups](#enable-log-collection-for-vms-and-network-security-groups)
