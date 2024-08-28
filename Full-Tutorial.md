@@ -1664,7 +1664,7 @@ Import</u>***
 **YES (windows-vm, Linux-vm)**
 
 Import all of our [Sentinel Analytics
-Rules](https://github.com/joshmadakor1/Cyber-Course-V2/tree/main/Sentinel-Analytics-Rules)
+Rules](https://github.com/Checkerss/Azure-Honey-Net-Lab/tree/71517dfb30351d67e52d61d4f2efa621e6ebd1b9/Sentinel-Analytics-Rules)
 
 <img src="./media/media/image171.png"
 style="width:6.5in;height:4.13958in"
